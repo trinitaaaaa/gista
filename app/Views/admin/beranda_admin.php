@@ -1,4 +1,3 @@
-
 <?= $this->extend('admin/template'); ?>
 <?= $this->section('content'); ?>
                 <!-- Begin Page Content -->
@@ -322,5 +321,4 @@
 
                 </div>
                 <!-- /.container-fluid -->
-
-            <?= $this->endSection(); ?>
+<?= $this->endSection(); ?>

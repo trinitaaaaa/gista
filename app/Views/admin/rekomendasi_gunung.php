@@ -17,6 +17,7 @@
                         <th style="border-bottom: 1px solid #000">Ketinggian(Mdpl)</th>
                         <th style="border-bottom: 1px solid #000">Ketinggian(ft)</th>
                         <th style="border-bottom: 1px solid #000">Pulau</th>
+                        <th style="border-bottom: 1px solid #000">Status</th>
                         <th style="border-bottom: 1px solid #000">Aksi</th>
                     </tr>
                 </thead>
@@ -30,16 +31,12 @@
                         <td><?= $r['ketinggian_mdpl']; ?></td>
                         <td><?= $r['ketinggian_ft']; ?></td>
                         <td><?= $r['pulau']; ?></td>
+                        <td><?= $r['status_gunung']; ?></td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic example">
                             <a href="<?=base_url('setujui-gunung/').$r['id_request']?>" class="btn btn-success">setujui</a>
                             <a class="btn btn-danger" href="#" data-toggle="modal" data-target="#tolakgunungModal<?= $r['id_request'] ?>">tolak</a>
-                            
                         </td>
-                        
-                        <!-- <td><a href="<?=base_url('setujui-gunung/').$r['id_request']?>" class="btn btn-success">setujui</a></td> -->
-                        <!-- <td><button type="submit" class="btn btn-success">setujui</button><br>
-                        <button type="submit" class="btn btn-danger">tolak</button></td> -->
                     </tr>
                     <?php $counter++;
                     endforeach; ?>

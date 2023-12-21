@@ -72,9 +72,8 @@ class Home extends BaseController
         $jalurModel = new JalurModel(); // Inisialisasi model
         $jalurData = $jalurModel->getAll();
         if ($jalurData == null){
-            $jalurData = "";
+            $jalurData = [];
         }
-
         $validation = $this->validate([
             'nama_gunung' => [
                 'rules'  => 'required',
@@ -127,10 +126,7 @@ class Home extends BaseController
                 ]
             ],       
         ]);
-
-
         if(!$validation) {
-
             return view('layout/header',['validation'=>$this->validator]) .
             view('content/form_content.php',['gunung'=>$gunungData,'jalur'=>$jalurData]) .
             view('layout/footer');

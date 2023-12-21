@@ -19,8 +19,11 @@ $routes->post('/form-tambah-data', 'Home::tambahData');
 $routes->get('/status-gunung', 'Home::statusgunung');
 $routes->get('/status-jalur', 'Home::statusjalur');
 $routes->get('/status-pos', 'Home::statuspos');
+#ADMIN
 $routes->get('/halaman-admin', 'Admin::halamanadmin');
 $routes->get('/data-gunung', 'Admin::datagunung');
+$routes->post('/tambah-data-gunung', 'Admin::tambahdatagunung');
+$routes->post('/update-data-gunung', 'Admin::updatedatagunung');
 $routes->get('/data-jalur', 'Admin::datajalur');
 $routes->get('/data-pos', 'Admin::datapos');
 $routes->get('/rekomendasi-gunung', 'Admin::rekomendasigunung');

@@ -82,7 +82,7 @@
 						</div>
 						<div class="col-2 text-end">
 						<?php if (session()->get('username')!== null) : ?>
-							<a href="<?= base_url('logout');?>" class="btn btn-sm btn-outline-light ms-auto float-end d-none d-md-block" style="padding: 10px 20px; border-radius: 23px">Logout</a>
+							<button id="logout" class="btn btn-sm btn-outline-light ms-auto float-end d-none d-md-block" style="padding: 10px 20px; border-radius: 23px">Logout</button>
 						 <?php else:?>
 							
 							<a href="<?= base_url('login');?>" class="btn btn-sm btn-outline-light ms-auto float-end d-none d-md-block" style="padding: 10px 20px; border-radius: 23px">Login</a>
@@ -95,3 +95,26 @@
 			</div>
 		</div>
 	</nav>
+<script>
+	const myButton = document.getElementById('logout');
+        myButton.addEventListener('click', function() {
+            Swal.fire({
+                title: "Yakin mau keluar?",
+                text: "Anda akan logout dari sistem",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Ya!",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: "Berhasil Keluar!",
+                        text: "Anda logout dari sistem",
+                        icon: "success"
+                    });
+                    window.location.href = "<?= base_url('logout')?>";
+                }
+            });
+        });
+</script>

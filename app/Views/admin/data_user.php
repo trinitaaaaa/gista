@@ -1,4 +1,3 @@
-
 <?= $this->extend('admin/template'); ?>
 <?= $this->section('content'); ?><div class="container-fluid">
 

@@ -108,6 +108,6 @@
 	<script src="admin/vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="admin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
     <script src="admin/js/demo/datatables-demo.js"></script>
-    
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
   </html>
