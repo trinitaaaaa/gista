@@ -6,12 +6,12 @@ use CodeIgniter\Model;
 
 class MakananModel extends Model
 {
-    protected $table = 'makanan'; // Nama tabel di database
-
+    protected $table = 'makanan';
+    protected $primaryKey = 'id_makanan';
+    protected $allowedFields = ['nama', 'kalori', 'gambar'];
     public function getMakanan()
     {
-        // Mengambil data dari tabel users
-        return $this->findAll(); // Mengambil semua data dari tabel
+        return $this->findAll();
     }
     public function getAll()
     {
@@ -20,5 +20,9 @@ class MakananModel extends Model
     public function getUser($id)
     {
         return $this->where('id_user', $id)->findAll();
+    }
+    public function deleteMakanan($id)
+    {
+        return $this->where('id_makanan', $id)->delete();
     }
 }

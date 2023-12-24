@@ -17,16 +17,18 @@
 		</div>
 		<form class="col-sm-10" method="post" action="<?= base_url('form-tambah-data');?>" enctype="multipart/form-data">
 			<?= csrf_field(); ?>
+			<input type="number" hidden name="id_user" value="<?= session()->get('id_user') ?>">
+
 			<div class="row mb-1">
 				<label for="gambar_gunung" class="col-sm-4 col-form-label text-dark" style="font-size: medium;">Upload foto gunung</label>
 				<div class="col-sm-8">
-					<input type="file" class="form-control" id="gambar_gunung" name="gambar_gunung" value="" style="height: 38px; border-radius: 27rem">
+					<input type="file" class="form-control" id="gambar_gunung" name="gambar_gunung" value="" style="height: 38px; border-radius: 27rem" required>
 				</div>
 			</div>
 			<div class="row mb-1">
 			<label class="col-sm-4 col-form-label text-dark" style="font-size: medium;">Nama gunung</label>
 				<div class="col-sm-8">
-					<input class="form-control" list="gunung" id="nama_gunung" name="nama_gunung" style="height: 38px; border-radius: 27rem" autocomplete="off"></label>
+					<input class="form-control" list="gunung" id="nama_gunung" name="nama_gunung" style="height: 38px; border-radius: 27rem" autocomplete="off" required></label>
 					<datalist id="gunung">
 					<?php foreach ($gunung as $g) : ?>
 					<option value="<?= $g['nama_gunung']; ?>">
@@ -37,19 +39,19 @@
 			<div class="row mb-1">
 				<label for="ketinggian_mdpl" class="col-sm-4 col-form-label text-dark" style="font-size: medium">Ketinggian (mdpl)</label>
 				<div class="col-sm-8">
-				<input type="number" class="form-control" id="ketinggian_mdpl" name="ketinggian_mdpl" placeholder="Masukkan ketinggian gunung mdpl (mdpl)" value="" style="height: 38px; border-radius: 27rem ">
+				<input type="number" class="form-control" id="ketinggian_mdpl" name="ketinggian_mdpl" placeholder="Masukkan ketinggian gunung mdpl (mdpl)" style="height: 38px; border-radius: 27rem" required>
 				</div>
 			</div>
 			<div class="row mb-1">
 				<label for="ketinggian_ft" class="col-sm-4 col-form-label text-dark" style="font-size: medium">Ketinggian (ft)</label>
 				<div class="col-sm-8">
-				<input type="number" class="form-control" id="ketinggian_ft" name="ketinggian_ft" placeholder="Masukkan ketinggian gunung mdpl (ft)" value="" style="height: 38px; border-radius: 27rem ">
+				<input type="number" class="form-control" id="ketinggian_ft" name="ketinggian_ft" placeholder="Masukkan ketinggian gunung mdpl (ft)" style="height: 38px; border-radius: 27rem" required>
 				</div>
 			</div>
 			<div class="row mb-1">
 					<label for="pulau" class="col-sm-4 col-form-label text-dark" style="font-size: medium">Pulau</label>
 					<div class="col-sm-8">
-					<select class="form-control" id="pulau" name="pulau" style="height: 38px; border-radius: 27rem">
+					<select class="form-control" id="pulau" name="pulau" style="height: 38px; border-radius: 27rem" required>
 						<option>Pilih pulau</option>
 						<option value="Jawa">Jawa</option>
 						<option value="Sumatra">Sumatra</option>

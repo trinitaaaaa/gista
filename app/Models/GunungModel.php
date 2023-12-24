@@ -9,9 +9,6 @@ class GunungModel extends Model
     protected $table = 'gunung'; // Nama tabel di database
     protected $primaryKey = 'id_gunung';
     protected $allowedFields = ['gambar_gunung','nama_gunung', 'ketinggian_mdpl', 'ketinggian_ft', 'pulau']; // Daftar bidang yang diizinkan
-
-
-
     public function getGunung()
     {
         // Mengambil data dari tabel users
@@ -24,7 +21,13 @@ class GunungModel extends Model
                     ->get()
                     ->getRow('nama_gunung');
     }
-
+    public function getGunungName($name)
+    {
+        return $this->select('id_gunung')
+                    ->where('nama_gunung', $name)
+                    ->get()
+                    ->getRow('id_gunung');
+    }
     public function countTotalGunung()
     {
     return $this->countAll(); // Menghitung jumlah semua data di tabel gunung

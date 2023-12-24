@@ -35,7 +35,15 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-check-label" for="pulau">Pulau</label>
-                            <input type="text" class="form-control" name="pulau" id="pulau" required>
+                            <select class="form-control" id="pulau" name="pulau" required>
+                                <option value="">Pilih pulau</option>
+                                <option value="Jawa">Jawa</option>
+                                <option value="Sumatra">Sumatra</option>
+                                <option value="Sulawesi">Sulawesi</option>
+                                <option value="Papua">Papua</option>
+                                <option value="Kalimantan">Kalimantan</option>
+                                <option value="Bali">Bali</option>
+                            </select>
                         </div>
                         <div class="modal-footer"><button class="btn btn-danger" type="button" data-bs-dismiss="modal">Batal</button><button class="btn btn-success" type="submit">Kirim</button></div>
                     </form>
@@ -55,7 +63,7 @@
                             <th style="border-bottom: 1px solid #000">Ketinggian(Mdpl)</th>
                             <th style="border-bottom: 1px solid #000">Ketinggian(ft)</th>
                             <th style="border-bottom: 1px solid #000">Pulau</th>
-                            <th style="border-bottom: 1px solid #000">Aksi</th>
+                            <th style="border-bottom: 1px solid #000" width="12%">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -98,7 +106,15 @@
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-check-label" for="pulau">Pulau</label>
-                                                    <input type="text" class="form-control" name="pulau" id="pulau" value="<?= $g['pulau']; ?>" required>
+                                                    <select class="form-control" id="pulau<?= $g['id_gunung'] ?>" name="pulau" style="height: 38px; border-radius: 27rem" required>
+                                                        <option value="">Pilih pulau</option>
+                                                        <option value="Jawa">Jawa</option>
+                                                        <option value="Sumatra">Sumatra</option>
+                                                        <option value="Sulawesi">Sulawesi</option>
+                                                        <option value="Papua">Papua</option>
+                                                        <option value="Kalimantan">Kalimantan</option>
+                                                        <option value="Bali">Bali</option>
+                                                    </select>
                                                 </div>
                                                 <div class="modal-footer"><button class="btn btn-danger" type="button" data-bs-dismiss="modal">Batal</button><button class="btn btn-success" type="submit">Kirim</button></div>
                                             </form>
@@ -119,24 +135,25 @@
         const myButton<?= $g['id_gunung'] ?> = document.getElementById('button-<?= $g['id_gunung'] ?>');
         myButton<?= $g['id_gunung'] ?>.addEventListener('click', function() {
             Swal.fire({
-                title: "Are you sure?",
-                text: "You won't be able to revert this!",
+                title: "Yakin ingin menghapus data?",
+                text: "Data yang sudah dihapus tidak bisa dikembalikan!",
                 icon: "warning",
                 showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
+                confirmButtonColor: "#d33",
+                cancelButtonColor: "#3085d6",
                 confirmButtonText: "Yes, delete it!",
             }).then((result) => {
                 if (result.isConfirmed) {
                     Swal.fire({
-                        title: "Deleted!",
-                        text: "Your file has been deleted.",
+                        title: "Hapus!",
+                        text: "Data berhasil dihapus.",
                         icon: "success"
                     });
                     window.location.href = "<?= base_url('delete-gunung/') . $g['id_gunung'] ?>";
                 }
             });
         });
+    document.getElementById('pulau<?= $g['id_gunung'] ?>').value='<?= $g['pulau'] ?>';
     <?php endforeach; ?>
 </script>
 <?= $this->endSection(); ?>

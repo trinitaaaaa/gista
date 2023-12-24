@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Waktu pembuatan: 21 Des 2023 pada 12.16
--- Versi server: 10.4.28-MariaDB
--- Versi PHP: 8.2.4
+-- Host: localhost:3307
+-- Waktu pembuatan: 24 Des 2023 pada 10.33
+-- Versi server: 10.4.32-MariaDB
+-- Versi PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -36,21 +36,6 @@ CREATE TABLE `gunung` (
   `pulau` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data untuk tabel `gunung`
---
-
-INSERT INTO `gunung` (`id_gunung`, `gambar_gunung`, `nama_gunung`, `ketinggian_mdpl`, `ketinggian_ft`, `pulau`) VALUES
-(1, 'sindoro.jpg', 'sindoro', 3153, 10335, 'Jawa'),
-(3, 'sumbing.jpg', 'Gunung Sumbing', 7858, 6557, 'Jawa'),
-(4, 'slamet.jpg', 'Gunung Slamet', 7867, 4343, 'Bali'),
-(5, 'sindoro.jpg', 'Gunung Sindoro', 3153, 1213, 'Kalimantan'),
-(9, 'yay', 'prau', 8696, 88585, 'Papua'),
-(10, 'yay', 'test', 223, 868, 'Sumatra'),
-(11, 'yay', 'test', 879779, 877, 'Jawa'),
-(12, 'yay', 'Gunung Slamet', 968, 97969, 'Sulawesi'),
-(13, 'slamet.jpg', 'TEST', 9726824, 927792, 'Papua');
-
 -- --------------------------------------------------------
 
 --
@@ -65,14 +50,6 @@ CREATE TABLE `jalur` (
   `detail` text NOT NULL,
   `id_gunung` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data untuk tabel `jalur`
---
-
-INSERT INTO `jalur` (`id_jalur`, `data_peta`, `nama_jalur`, `alamat`, `detail`, `id_gunung`) VALUES
-(3, 'hero_1', 'VIA ALANG-ALANG SEWU', 'Jl. Campur Salam No.7, Kledung, Kec. Kledung, Kabupaten Temanggung, Jawa Tengah 56264', 'Gunung Sindoro, biasa disebut Sindara, atau juga Sundoro (Ketinggian puncak 3.150 mdpl) (bahasa Jawa: Gunung Sindara) merupakan sebuah gunung volkano aktif yang terletak di Jawa Tengah, Indonesia, dengan Temanggung sebagai kota terdekat. Gunung Sindoro terletak berdampingan dengan Gunung Sumbing.Gunung sindara dapat terlihat jelas dari puncak sikunir dieng  Kawah yang disertai jurang dapat ditemukan di sisi barat laut ke selatan gunung, dan yang terbesar disebut Kembang. Sebuah kubah lava kecil menempati puncak gunung berapi. Sejarah letusan Gunung Sindara yang telah terjadi sebagian besar berjenis ringan sampai sedang (letusan freatik).  Hutan di kawasan Gunung Sundoro mempunyai bertipe hutan Dipterokarp Bukit, hutan Dipterokarp Atas, hutan Montane, dan Hutan Ericaceous atau hutan gunung.', 1),
-(4, 'hero_1', 'VIA NDORO ARUM', 'Banaran, Kayugiyang, Kec. Garung, Kabupaten Wonosobo, Jawa Tengah 56353', 'Untuk mencapai puncaknya terdapat beberapa basecamp yang bisa di tempuh, antaralain Jalur Kledung yang paling ramai, Basecamp Sigedang, Basecamp Bangsri, Basecamp Tambi dan terakhir Basecamp Ndoro Arum yang rata-rata semua basecamp masuk ke dalam wilayah Wonosobo kecuali Kledung merupakan perbatasan dari Kabupaten Temanggung dan Kabupaten Wonosobo.  Basecamp Ndoro Arum sendiri termasuk Banaran, Kayu Giang, Garung yang merupakan wilayah Wonosobo yang berada di sebelah barat gunung Sindoro.', 1);
 
 -- --------------------------------------------------------
 
@@ -108,16 +85,7 @@ CREATE TABLE `makanan` (
 --
 
 INSERT INTO `makanan` (`id_makanan`, `gambar`, `nama`, `kalori`) VALUES
-(1, 'bengbeng.png', 'bengbeng', 71331),
-(2, 'cokicoki.png', 'cokicoki', 71331),
-(3, 'indomie.png', 'indomie', 71331),
-(4, 'oatmeal.png', 'oatmeal', 71331),
-(5, 'oatmeal.png', 'oatmeal', 9778),
-(6, 'oatmeal.png', 'oatmeal', 9778),
-(7, 'oatmeal.png', 'oatmeal', 9778),
-(8, 'oatmeal.png', 'oatmeal', 9778),
-(9, 'oatmeal.png', 'oatmeal', 9778),
-(10, 'oatmeal.png', 'oatmeal', 9778);
+(2, 'cokicoki.png', 'cokicoki', 12);
 
 -- --------------------------------------------------------
 
@@ -159,15 +127,16 @@ CREATE TABLE `pos` (
 
 CREATE TABLE `request_data` (
   `id_request` int(20) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `gambar_gunung` varchar(255) NOT NULL,
   `nama_gunung` varchar(100) NOT NULL,
   `ketinggian_mdpl` int(11) NOT NULL,
   `ketinggian_ft` int(11) NOT NULL,
   `pulau` varchar(100) NOT NULL,
-  `data_peta` varchar(255) NOT NULL,
-  `nama_jalur` varchar(100) NOT NULL,
-  `alamat` varchar(255) NOT NULL,
-  `detail` text NOT NULL,
+  `data_peta` varchar(255) DEFAULT NULL,
+  `nama_jalur` varchar(100) DEFAULT NULL,
+  `alamat` varchar(255) DEFAULT NULL,
+  `detail` text DEFAULT NULL,
   `pos` int(11) DEFAULT NULL,
   `gambar_pos` varchar(255) DEFAULT NULL,
   `kebutuhan_kalori` int(11) DEFAULT NULL,
@@ -182,17 +151,6 @@ CREATE TABLE `request_data` (
   `alasan_jalur` text NOT NULL,
   `alasan_pos` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data untuk tabel `request_data`
---
-
-INSERT INTO `request_data` (`id_request`, `gambar_gunung`, `nama_gunung`, `ketinggian_mdpl`, `ketinggian_ft`, `pulau`, `data_peta`, `nama_jalur`, `alamat`, `detail`, `pos`, `gambar_pos`, `kebutuhan_kalori`, `sumber_mata_air`, `flora_fauna`, `ketinggian_pos`, `waktu`, `status_gunung`, `status_jalur`, `status_pos`, `alasan_gunung`, `alasan_jalur`, `alasan_pos`) VALUES
-(1, 'slamet.jpg', 'sindoro', 76, 768, 'Kalimantan', 'uyiy', 'jalur', 'gjhg', 'ggjg', 0, 'gjg', 0, 'on', 'jhjkh', NULL, 0, 'ditolak', 'request', 'request', 'aneh', '', ''),
-(2, 'slamet.jpg', 'TEST', 9726824, 927792, 'Papua', 'TEST', 'TEST', 'TEST', 'TEST', 5, 'TEST', 0, 'on', 'TEST', NULL, 8986, 'ditolak', 'request', 'request', '', '', ''),
-(3, 'slamet.jpg', 'tgf', 56465, 5646, 'Jawa', 'hgnfu', '675', 'ghh', 'ghf', 67, 'hv', 0, 'on', 'nhv', NULL, 0, 'ditolak', 'request', 'request', '', '', ''),
-(4, '13074695188326.jpg', 'fikka', 343, 354, 'Jawa', 'eer', 'et', 'ete', 'ffter', 3, 'sfs', 0, 'on', 'sf', NULL, 34, 'ditolak', 'request', 'request', '', '', ''),
-(5, 'aaaaaa.PNG', 'gfgf', 65, 432, 'Jawa', 're', 'ewt', 'dgsg', 'sdg', 0, 'dsg', 0, 'on', 'sdgs', NULL, 0, 'disetujui', 'request', 'request', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -215,7 +173,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id_user`, `nama`, `email`, `username`, `password`, `role`) VALUES
 (1, 'admin', 'admin@gmail.com', 'admin', 'admin', 'Admin'),
-(2, 'Taehyung', 'trinitong61@gmail.com', 'winterbeaaar_', 'bts123', 'Penginput');
+(2, 'Taehyung', 'trinitong61@gmail.com', 'penginput', 'penginput', 'Penginput');
 
 --
 -- Indexes for dumped tables
@@ -279,13 +237,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `gunung`
 --
 ALTER TABLE `gunung`
-  MODIFY `id_gunung` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_gunung` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT untuk tabel `jalur`
 --
 ALTER TABLE `jalur`
-  MODIFY `id_jalur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_jalur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT untuk tabel `kalori`
@@ -297,7 +255,7 @@ ALTER TABLE `kalori`
 -- AUTO_INCREMENT untuk tabel `makanan`
 --
 ALTER TABLE `makanan`
-  MODIFY `id_makanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_makanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `porter`
@@ -309,13 +267,13 @@ ALTER TABLE `porter`
 -- AUTO_INCREMENT untuk tabel `pos`
 --
 ALTER TABLE `pos`
-  MODIFY `id_pos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_pos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `request_data`
 --
 ALTER TABLE `request_data`
-  MODIFY `id_request` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_request` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
@@ -331,13 +289,13 @@ ALTER TABLE `user`
 -- Ketidakleluasaan untuk tabel `jalur`
 --
 ALTER TABLE `jalur`
-  ADD CONSTRAINT `id_gunung` FOREIGN KEY (`id_gunung`) REFERENCES `gunung` (`id_gunung`);
+  ADD CONSTRAINT `id_gunung` FOREIGN KEY (`id_gunung`) REFERENCES `gunung` (`id_gunung`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `pos`
 --
 ALTER TABLE `pos`
-  ADD CONSTRAINT `id_jalur` FOREIGN KEY (`id_jalur`) REFERENCES `jalur` (`id_jalur`);
+  ADD CONSTRAINT `id_jalur` FOREIGN KEY (`id_jalur`) REFERENCES `jalur` (`id_jalur`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

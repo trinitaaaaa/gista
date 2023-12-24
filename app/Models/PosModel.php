@@ -8,7 +8,7 @@ class PosModel extends Model
 {
     protected $table = 'pos';
     protected $primaryKey = 'id_pos';
-    protected $allowedFields = ['pos', 'gambar_pos', 'kebutuhan_kalori', 'sumber_mata_air', 'flora_fauna', 'ketinggian_pos', 'waktu'];
+    protected $allowedFields = ['pos', 'gambar_pos', 'kebutuhan_kalori', 'sumber_mata_air', 'flora_fauna', 'ketinggian_pos', 'waktu','id_jalur'];
     public function getAll()
     {
         return $this->findAll();
@@ -20,6 +20,10 @@ class PosModel extends Model
     public function countTotalPos()
     {
     return $this->countAll(); // Menghitung jumlah semua data di tabel pos
+    }
+    public function deletePos($id)
+    {
+    return $this->where('id_pos', $id)->delete();
     }
 }
 
