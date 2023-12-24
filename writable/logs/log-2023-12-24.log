@@ -1416,3 +1416,109 @@ INFO - 2023-12-24 09:32:33 --> Session: Class initialized using 'CodeIgniter\Ses
 WARNING - 2023-12-24 09:32:33 --> Session: Sessions is enabled, and one exists. Please don't $session->start();
 INFO - 2023-12-24 09:32:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 WARNING - 2023-12-24 09:32:37 --> Session: Sessions is enabled, and one exists. Please don't $session->start();
+INFO - 2023-12-24 09:38:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2023-12-24 09:38:00 --> Session: Sessions is enabled, and one exists. Please don't $session->start();
+ERROR - 2023-12-24 09:38:00 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in C:\xampp\htdocs\gista\system\Database\MySQLi\Connection.php:184
+Stack trace:
+#0 C:\xampp\htdocs\gista\system\Database\MySQLi\Connection.php(184): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'gista', 3306, '', 0)
+#1 C:\xampp\htdocs\gista\system\Database\BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\gista\system\Database\BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\gista\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', NULL, false)
+#4 C:\xampp\htdocs\gista\system\Model.php(871): CodeIgniter\Database\BaseBuilder->countAll()
+#5 C:\xampp\htdocs\gista\app\Models\GunungModel.php(33): CodeIgniter\Model->__call('countAll', Array)
+#6 C:\xampp\htdocs\gista\app\Controllers\Admin.php(23): App\Models\GunungModel->countTotalGunung()
+#7 C:\xampp\htdocs\gista\system\CodeIgniter.php(942): App\Controllers\Admin->halamanadmin()
+#8 C:\xampp\htdocs\gista\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 C:\xampp\htdocs\gista\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\gista\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: NO) in C:\xampp\htdocs\gista\system\Database\MySQLi\Connection.php:229
+Stack trace:
+#0 C:\xampp\htdocs\gista\system\Database\BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\gista\system\Database\BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\gista\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', NULL, false)
+#3 C:\xampp\htdocs\gista\system\Model.php(871): CodeIgniter\Database\BaseBuilder->countAll()
+#4 C:\xampp\htdocs\gista\app\Models\GunungModel.php(33): CodeIgniter\Model->__call('countAll', Array)
+#5 C:\xampp\htdocs\gista\app\Controllers\Admin.php(23): App\Models\GunungModel->countTotalGunung()
+#6 C:\xampp\htdocs\gista\system\CodeIgniter.php(942): App\Controllers\Admin->halamanadmin()
+#7 C:\xampp\htdocs\gista\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 C:\xampp\htdocs\gista\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\gista\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-12-24 09:38:00 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: NO)
+in SYSTEMPATH\Database\BaseConnection.php on line 428.
+ 1 SYSTEMPATH\Database\BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows` FROM `gunung`', null, false)
+ 3 SYSTEMPATH\Model.php(871): CodeIgniter\Database\BaseBuilder->countAll()
+ 4 APPPATH\Models\GunungModel.php(33): CodeIgniter\Model->__call('countAll', [])
+ 5 APPPATH\Controllers\Admin.php(23): App\Models\GunungModel->countTotalGunung()
+ 6 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Admin->halamanadmin()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2023-12-24 09:38:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2023-12-24 09:38:03 --> Session: Sessions is enabled, and one exists. Please don't $session->start();
+ERROR - 2023-12-24 09:38:03 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in C:\xampp\htdocs\gista\system\Database\MySQLi\Connection.php:184
+Stack trace:
+#0 C:\xampp\htdocs\gista\system\Database\MySQLi\Connection.php(184): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'gista', 3306, '', 0)
+#1 C:\xampp\htdocs\gista\system\Database\BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\gista\system\Database\BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\gista\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\gista\system\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\gista\system\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\gista\app\Models\MakananModel.php(18): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\gista\app\Controllers\Admin.php(412): App\Models\MakananModel->getAll()
+#8 C:\xampp\htdocs\gista\system\CodeIgniter.php(942): App\Controllers\Admin->datamakanan()
+#9 C:\xampp\htdocs\gista\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#10 C:\xampp\htdocs\gista\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\gista\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: NO) in C:\xampp\htdocs\gista\system\Database\MySQLi\Connection.php:229
+Stack trace:
+#0 C:\xampp\htdocs\gista\system\Database\BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\gista\system\Database\BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\gista\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\gista\system\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\gista\system\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\xampp\htdocs\gista\app\Models\MakananModel.php(18): CodeIgniter\BaseModel->findAll()
+#6 C:\xampp\htdocs\gista\app\Controllers\Admin.php(412): App\Models\MakananModel->getAll()
+#7 C:\xampp\htdocs\gista\system\CodeIgniter.php(942): App\Controllers\Admin->datamakanan()
+#8 C:\xampp\htdocs\gista\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 C:\xampp\htdocs\gista\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\gista\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-12-24 09:38:03 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: NO)
+in SYSTEMPATH\Database\BaseConnection.php on line 428.
+ 1 SYSTEMPATH\Database\BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `makanan`', [], false)
+ 3 SYSTEMPATH\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Models\MakananModel.php(18): CodeIgniter\BaseModel->findAll()
+ 6 APPPATH\Controllers\Admin.php(412): App\Models\MakananModel->getAll()
+ 7 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Admin->datamakanan()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2023-12-24 09:38:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2023-12-24 09:38:11 --> Session: Sessions is enabled, and one exists. Please don't $session->start();
+INFO - 2023-12-24 09:38:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2023-12-24 09:38:13 --> Session: Sessions is enabled, and one exists. Please don't $session->start();
+INFO - 2023-12-24 11:21:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2023-12-24 11:21:16 --> Session: Sessions is enabled, and one exists. Please don't $session->start();
+INFO - 2023-12-24 11:43:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2023-12-24 11:43:14 --> Session: Sessions is enabled, and one exists. Please don't $session->start();
+INFO - 2023-12-24 11:50:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2023-12-24 11:50:40 --> Session: Sessions is enabled, and one exists. Please don't $session->start();
+INFO - 2023-12-24 11:50:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2023-12-24 11:50:41 --> Session: Sessions is enabled, and one exists. Please don't $session->start();
+INFO - 2023-12-24 11:53:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2023-12-24 11:53:39 --> Session: Sessions is enabled, and one exists. Please don't $session->start();
+INFO - 2023-12-24 11:53:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2023-12-24 11:53:42 --> Session: Sessions is enabled, and one exists. Please don't $session->start();
+INFO - 2023-12-24 11:53:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2023-12-24 11:53:52 --> Session: Sessions is enabled, and one exists. Please don't $session->start();

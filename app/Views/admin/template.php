@@ -43,7 +43,7 @@
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Rekomendasi Data</span>
                 </a>
-                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="<?= base_url('rekomendasi-gunung');?>">Rekomendasi Gunung</a>
                         <a class="collapse-item" href="<?=base_url ('rekomendasi-jalur');?>">Rekomendasi Jalur</a>
@@ -57,7 +57,7 @@
                     <i class="fas fa-solid fa-table"></i>
                     <span>Data Tersimpan</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="<?= base_url('data-gunung');?>">Data Gunung</a>
                         <a class="collapse-item" href="<?=base_url ('data-jalur');?>">Data Jalur</a>
@@ -215,6 +215,8 @@
     <script src="<?= base_url('admin/'); ?>vendor/datatables/dataTables.bootstrap4.min.js"></script>
     <script src="<?= base_url('admin/'); ?>js/demo/datatables-demo.js"></script>
     <script src="<?= base_url('/');?>assets/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= base_url('/');?>vendor/admin/bootstrap.bundle.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
